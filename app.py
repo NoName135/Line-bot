@@ -45,11 +45,12 @@ def handle_message(event):
         sticker_message = StickerSendMessage(
             package_id='11537',
             sticker_id='52002763'
-    )
-        
-    line_bot_api.reply_message(
-        event.reply_token,
-        sticker_message)
+        )
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message)
+        return
 
     if msg in ['hi', 'Hi', '嗨']:
         re = 'Hi, 我是愛蘿莉的簡歪信'

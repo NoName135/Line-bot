@@ -41,7 +41,7 @@ def handle_message(event):
 
     re = '哩公蝦小挖跨謀'
 
-    if '蘿莉控' in msg:
+    if '變態' in msg:
         sticker_message = StickerSendMessage(
             package_id='11537',
             sticker_id='52002763'
@@ -63,7 +63,7 @@ def handle_message(event):
     if msg in ['hi', 'Hi', '嗨']:
         re = 'Hi, 我是愛蘿莉的簡歪信'
     elif msg == '你是誰':
-        re = '我是羅莉控'
+        re = '我是蘿莉控'
     elif ['蘿莉', '羅莉'] in msg:
         re = '我好興奮阿!!!'
 

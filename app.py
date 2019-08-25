@@ -62,9 +62,11 @@ def handle_message(event):
 
     if msg in ['hi', 'Hi', '嗨']:
         re = 'Hi, 我是愛蘿莉的簡歪信'
-    elif msg == '你是誰':
+    elif msg in ['你是誰', '你誰', 'who are you']:
         re = '我是蘿莉控'
-    elif ['蘿莉', '羅莉'] in msg:
+    elif '簡立信' in msg:
+        re = '不要叫我本名!'
+    elif '蘿莉' in msg:
         re = '我好興奮阿!!!'
 
     line_bot_api.reply_message(

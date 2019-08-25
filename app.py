@@ -40,10 +40,12 @@ def handle_message(event):
     msg = event.message.text
 
     re = '哩公蝦小挖跨謀'
-    if msg == 'hi':
-        re = 'hi, 我是羅莉控簡歪信'
-    elif msg == '你吃飯了嗎':
-        re = '我都吃羅莉'
+    if msg == ['hi', 'Hi']:
+        re = 'hi, 我是愛蘿莉的簡歪信'
+    elif msg == '你是誰':
+        re = '我是羅莉控'
+    elif '蘿莉' in msg:
+        re = '我好興奮阿'
 
     line_bot_api.reply_message(
         event.reply_token,

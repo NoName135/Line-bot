@@ -40,16 +40,20 @@ def handle_message(event):
     msg = event.message.text
 
     re = '哩公蝦小挖跨謀'
-    if msg in ['hi', 'Hi']:
-        re = 'hi, 我是愛蘿莉的簡歪信'
+    if msg in ['hi', 'Hi', '嗨']:
+        re = 'Hi, 我是愛蘿莉的簡歪信'
     elif msg == '你是誰':
         re = '我是羅莉控'
-    elif '蘿莉' in msg:
+    elif ['蘿莉', '羅莉'] in msg:
         re = '我好興奮阿'
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=re))
+        # TextSendMessage(text=re))
+        StickerSendMessage(
+            package_id='11537',
+            sticker_id='52002763'
+    ))
 
 
 if __name__ == "__main__":

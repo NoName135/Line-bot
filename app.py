@@ -40,7 +40,7 @@ def handle_message(event):
     msg = event.message.text
 
     re = '哩公蝦小挖跨謀'
-    if msg == ['hi', 'Hi']:
+    if msg in ['hi', 'Hi']:
         re = 'hi, 我是愛蘿莉的簡歪信'
     elif msg == '你是誰':
         re = '我是羅莉控'

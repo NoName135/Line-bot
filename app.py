@@ -39,27 +39,7 @@ def callback():
 def handle_message(event):
     msg = event.message.text
 
-    if talk == "安靜":
-        if msg == '簡Y信說話':
-            re = '有蘿莉了嗎?'
-            talk = "說話"
-            line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=re))
-            return
-        else:
-            return
-
-    if msg == '簡Y信安靜':
-        re = '好的，有蘿莉在跟我說'
-        talk = "安靜"
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=re))
-        return
-
     re = '哩公蝦小挖跨謀'
-
 
     if '變態' in msg:
         sticker_message = StickerSendMessage(

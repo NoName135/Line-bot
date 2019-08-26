@@ -48,8 +48,6 @@ def handle_message(event):
             TextSendMessage(text=re))
             return
         else:
-            line_bot_api.reply_message(
-            event.reply_token)
             return
 
     if msg == '簡Y信安靜':

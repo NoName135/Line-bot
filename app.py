@@ -38,50 +38,57 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
+    talk = "說話"
 
-    re = '哩公蝦小挖跨謀'
+    if talk == "安靜":
+        if msg == '簡Y信說話':
+            re = '有蘿莉了嗎?'
+            talk = "說話"
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=re))
+        else:
+            return
 
-    if '變態' in msg:
-        sticker_message = StickerSendMessage(
-            package_id='11537',
-            sticker_id='52002763'
-        )
+    elif talk == "說話":
+
+        re = '哩公蝦小挖跨謀'
+
+        if '變態' in msg:
+            sticker_message = StickerSendMessage(
+                package_id='11537',
+                sticker_id='52002763'
+            )
+            line_bot_api.reply_message(
+                event.reply_token,
+                sticker_message)
+            return
+        elif '警察' or 'FBI' in msg:
+            sticker_message = StickerSendMessage(
+                package_id='11538',
+                sticker_id='51626511'
+            )
+            line_bot_api.reply_message(
+                event.reply_token,
+                sticker_message)
+            return
+
+        if msg in ['hi', 'Hi', '嗨']:
+            re = 'Hi, 我是愛蘿莉的簡歪信'
+        elif msg in ['你是誰', '你誰', 'who are you']:
+            re = '我是蘿莉控'
+        elif '簡立信' in msg:
+            re = '不要叫我本名!'
+        elif '蘿莉' or '羅莉' in msg:
+            re = '我好興奮阿!!!'
+        elif '幼稚園' or '幼兒園' in msg:
+            re = '我都在門口偷看'
+        elif msg == '簡Y信安靜':
+            re = '好的，有蘿莉在跟我說'
+            talk = "安靜"
         line_bot_api.reply_message(
             event.reply_token,
-            sticker_message)
-        return
-    elif '警察' in msg:
-        sticker_message = StickerSendMessage(
-            package_id='11538',
-            sticker_id='51626511'
-        )
-        line_bot_api.reply_message(
-            event.reply_token,
-            sticker_message)
-        return
-    elif 'FBI' in msg:
-        sticker_message = StickerSendMessage(
-            package_id='11538',
-            sticker_id='51626511'
-        )
-        line_bot_api.reply_message(
-            event.reply_token,
-            sticker_message)
-        return
-
-    if msg in ['hi', 'Hi', '嗨']:
-        re = 'Hi, 我是愛蘿莉的簡歪信'
-    elif msg in ['你是誰', '你誰', 'who are you']:
-        re = '我是蘿莉控'
-    elif '簡立信' in msg:
-        re = '不要叫我本名!'
-    elif '蘿莉' in msg:
-        re = '我好興奮阿!!!'
-    elif '幼稚園' or '幼兒園' in msg:
-        re = '我都在門口偷看'
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=re))
+            TextSendMessage(text=re))
 
 
 if __name__ == "__main__":

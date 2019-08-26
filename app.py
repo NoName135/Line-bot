@@ -38,7 +38,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    talk = "說話"
 
     if talk == "安靜":
         if msg == '簡Y信說話':

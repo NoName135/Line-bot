@@ -51,8 +51,15 @@ def handle_message(event):
             return
 
     elif talk == "說話":
-
+        if msg == '簡Y信安靜':
+            re = '好的，有蘿莉在跟我說'
+            talk = "安靜"
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=re))
+            
         re = '哩公蝦小挖跨謀'
+
 
         if '變態' in msg:
             sticker_message = StickerSendMessage(
@@ -83,9 +90,6 @@ def handle_message(event):
             re = '我好興奮阿!!!'
         elif '幼稚園' or '幼兒園' in msg:
             re = '我都在門口偷看'
-        elif msg == '簡Y信安靜':
-            re = '好的，有蘿莉在跟我說'
-            talk = "安靜"
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=re))

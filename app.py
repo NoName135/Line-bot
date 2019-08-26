@@ -41,23 +41,22 @@ def handle_message(event):
 
     re = '哩公蝦小挖跨謀'
 
+    sticker_message_re = line_bot_api.reply_message(
+        event.reply_token,
+        sticker_message)
     if '變態' in msg:
         sticker_message = StickerSendMessage(
             package_id='11537',
             sticker_id='52002763'
         )
-        line_bot_api.reply_message(
-            event.reply_token,
-            sticker_message)
+        sticker_message_re
         return
     elif '警察' in msg:
         sticker_message = StickerSendMessage(
             package_id='11538',
             sticker_id='51626511'
         )
-        line_bot_api.reply_message(
-            event.reply_token,
-            sticker_message)
+        sticker_message_re
         return
 
     if msg in ['hi', 'Hi', '嗨']:

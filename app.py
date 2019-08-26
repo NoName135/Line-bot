@@ -50,7 +50,16 @@ def handle_message(event):
             event.reply_token,
             sticker_message)
         return
-    elif '警察' or 'FBI' in msg:
+    elif '警察' in msg:
+        sticker_message = StickerSendMessage(
+            package_id='11538',
+            sticker_id='51626511'
+        )
+        line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message)
+        return
+    elif 'FBI' in msg:
         sticker_message = StickerSendMessage(
             package_id='11538',
             sticker_id='51626511'
@@ -66,9 +75,11 @@ def handle_message(event):
         re = '我是蘿莉控'
     elif '簡立信' in msg:
         re = '不要叫我本名!'
-    elif '蘿莉' or '羅莉' in msg:
+    elif '蘿莉' in msg:
         re = '我好興奮阿!!!'
-    elif '幼稚園' or '幼兒園' in msg:
+    elif '幼稚園' in msg:
+        re = '我都在門口偷看'
+    elif '幼兒園' in msg:
         re = '我都在門口偷看'
     line_bot_api.reply_message(
         event.reply_token,
